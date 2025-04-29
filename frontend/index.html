@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter MBTI Personality Analyzer</title>
+  <link rel="stylesheet" href="frontend/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <h1>TweetPersona</h1>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-moon"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Discover Your Twitter Personality</h2>
+        <p>Enter a Twitter username to analyze their tweets and reveal their MBTI personality type.</p>
+        
+        <form id="twitter-form">
+          <div class="input-group">
+            <div class="input-prefix">@</div>
+            <input 
+              type="text" 
+              id="twitter-username" 
+              placeholder="username" 
+              autocomplete="off"
+              required
+            >
+          </div>
+          <button type="submit" id="analyze-btn">Analyze</button>
+        </form>
+      </section>
+
+      <section id="loading-section" class="hidden">
+        <div class="loading-container">
+          <div class="loading-spinner"></div>
+          <p>Analyzing tweets...</p>
+          <div class="loading-status">Fetching recent tweets</div>
+        </div>
+      </section>
+
+      <section id="results-section" class="hidden">
+        <div class="results-header">
+          <h3>Personality Analysis for <span id="result-username"></span></h3>
+          <div class="share-buttons">
+            <button id="download-btn">Download Results</button>
+            <button id="share-btn">Share</button>
+          </div>
+        </div>
+        
+        <div class="personality-card">
+          <div class="personality-type">
+            <h2 id="mbti-type">INFJ</h2>
+            <h3 id="mbti-title">The Advocate</h3>
+          </div>
+          <div class="personality-description" id="personality-description">
+            <!-- Description will be filled by JavaScript -->
+          </div>
+        </div>
+
+        <div class="trait-breakdown">
+          <h3>Personality Trait Breakdown</h3>
+          
+          <div class="trait-container">
+            <div class="trait-pair">
+              <div class="trait" id="trait-E">
+                <h4>Extraversion</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="E-progress"></div>
+                </div>
+                <span class="trait-percentage" id="E-percentage">0%</span>
+              </div>
+              <div class="trait" id="trait-I">
+                <h4>Introversion</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="I-progress"></div>
+                </div>
+                <span class="trait-percentage" id="I-percentage">0%</span>
+              </div>
+            </div>
+            
+            <div class="trait-pair">
+              <div class="trait" id="trait-S">
+                <h4>Sensing</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="S-progress"></div>
+                </div>
+                <span class="trait-percentage" id="S-percentage">0%</span>
+              </div>
+              <div class="trait" id="trait-N">
+                <h4>Intuition</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="N-progress"></div>
+                </div>
+                <span class="trait-percentage" id="N-percentage">0%</span>
+              </div>
+            </div>
+            
+            <div class="trait-pair">
+              <div class="trait" id="trait-T">
+                <h4>Thinking</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="T-progress"></div>
+                </div>
+                <span class="trait-percentage" id="T-percentage">0%</span>
+              </div>
+              <div class="trait" id="trait-F">
+                <h4>Feeling</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="F-progress"></div>
+                </div>
+                <span class="trait-percentage" id="F-percentage">0%</span>
+              </div>
+            </div>
+            
+            <div class="trait-pair">
+              <div class="trait" id="trait-J">
+                <h4>Judging</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="J-progress"></div>
+                </div>
+                <span class="trait-percentage" id="J-percentage">0%</span>
+              </div>
+              <div class="trait" id="trait-P">
+                <h4>Perceiving</h4>
+                <div class="trait-bar">
+                  <div class="trait-progress" id="P-progress"></div>
+                </div>
+                <span class="trait-percentage" id="P-percentage">0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tweet-examples">
+          <h3>Tweet Evidence</h3>
+          <div id="tweet-examples-container">
+            <!-- Tweet examples will be filled by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 TweetPersona. This is for educational purposes only.</p>
+      <p>Not affiliated with Twitter/X or the Myers-Briggs Foundation.</p>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/mbti-data.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

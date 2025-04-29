@@ -1,0 +1,494 @@
+:root {
+  --color-primary: #1DA1F2;
+  --color-primary-dark: #0C85D0;
+  --color-secondary: #657786;
+  --color-text: #14171A;
+  --color-text-secondary: #657786;
+  --color-background: #FFFFFF;
+  --color-background-secondary: #F5F8FA;
+  --color-border: #E1E8ED;
+  --color-error: #E0245E;
+  --color-success: #17BF63;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  
+  --transition-default: 0.3s ease;
+  
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
+  --spacing-7: 64px;
+}
+
+[data-theme="dark"] {
+  --color-primary: #1A91DA;
+  --color-primary-dark: #0C7ABF;
+  --color-secondary: #8899A6;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #AAB8C2;
+  --color-background: #15202B;
+  --color-background-secondary: #192734;
+  --color-border: #38444D;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-3);
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) 0;
+  margin-bottom: var(--spacing-5);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  position: relative;
+}
+
+.logo-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-background);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'%3E%3C/path%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color var(--transition-default);
+}
+
+#theme-toggle:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.icon-moon, .icon-sun {
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.icon-moon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .icon-moon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='5'%3E%3C/circle%3E%3Cline x1='12' y1='1' x2='12' y2='3'%3E%3C/line%3E%3Cline x1='12' y1='21' x2='12' y2='23'%3E%3C/line%3E%3Cline x1='4.22' y1='4.22' x2='5.64' y2='5.64'%3E%3C/line%3E%3Cline x1='18.36' y1='18.36' x2='19.78' y2='19.78'%3E%3C/line%3E%3Cline x1='1' y1='12' x2='3' y2='12'%3E%3C/line%3E%3Cline x1='21' y1='12' x2='23' y2='12'%3E%3C/line%3E%3Cline x1='4.22' y1='19.78' x2='5.64' y2='18.36'%3E%3C/line%3E%3Cline x1='18.36' y1='5.64' x2='19.78' y2='4.22'%3E%3C/line%3E%3C/svg%3E");
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: var(--spacing-5) 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-3);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-5);
+  color: var(--color-text-secondary);
+}
+
+/* Form Styles */
+#twitter-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: var(--spacing-2);
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+.input-prefix {
+  position: absolute;
+  left: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+#twitter-username {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3) calc(var(--spacing-3) + 1em);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: border-color var(--transition-default), box-shadow var(--transition-default);
+}
+
+#twitter-username:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.2);
+}
+
+#analyze-btn {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-default), transform var(--transition-default);
+}
+
+#analyze-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+#analyze-btn:active {
+  transform: scale(0.98);
+}
+
+/* Loading Section */
+#loading-section {
+  text-align: center;
+  padding: var(--spacing-6) 0;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-background-secondary);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-status {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Results Section */
+#results-section {
+  padding: var(--spacing-5) 0;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.results-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.share-buttons {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.share-buttons button {
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-default);
+}
+
+.share-buttons button:hover {
+  background-color: var(--color-border);
+}
+
+/* Personality Card */
+.personality-card {
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.personality-type {
+  text-align: center;
+}
+
+.personality-type h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-1);
+  color: var(--color-primary);
+}
+
+.personality-type h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.personality-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Trait Breakdown */
+.trait-breakdown {
+  margin-bottom: var(--spacing-5);
+}
+
+.trait-breakdown h3 {
+  margin-bottom: var(--spacing-4);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.trait-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.trait-pair {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.trait {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.trait h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.trait-bar {
+  height: 12px;
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+
+.trait-progress {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: 0%;
+  transition: width 1s ease-out;
+}
+
+.trait-percentage {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Personality Colors */
+.INTJ .trait-progress, .INTJ .personality-type h2 { background-color: #4A5568; color: white; }
+.INTP .trait-progress, .INTP .personality-type h2 { background-color: #805AD5; color: white; }
+.ENTJ .trait-progress, .ENTJ .personality-type h2 { background-color: #DD6B20; color: white; }
+.ENTP .trait-progress, .ENTP .personality-type h2 { background-color: #F6AD55; color: #1A202C; }
+.INFJ .trait-progress, .INFJ .personality-type h2 { background-color: #6B46C1; color: white; }
+.INFP .trait-progress, .INFP .personality-type h2 { background-color: #B794F4; color: #1A202C; }
+.ENFJ .trait-progress, .ENFJ .personality-type h2 { background-color: #F56565; color: white; }
+.ENFP .trait-progress, .ENFP .personality-type h2 { background-color: #FC8181; color: #1A202C; }
+.ISTJ .trait-progress, .ISTJ .personality-type h2 { background-color: #2C5282; color: white; }
+.ISFJ .trait-progress, .ISFJ .personality-type h2 { background-color: #4299E1; color: white; }
+.ESTJ .trait-progress, .ESTJ .personality-type h2 { background-color: #2F855A; color: white; }
+.ESFJ .trait-progress, .ESFJ .personality-type h2 { background-color: #48BB78; color: #1A202C; }
+.ISTP .trait-progress, .ISTP .personality-type h2 { background-color: #718096; color: white; }
+.ISFP .trait-progress, .ISFP .personality-type h2 { background-color: #A0AEC0; color: #1A202C; }
+.ESTP .trait-progress, .ESTP .personality-type h2 { background-color: #D69E2E; color: white; }
+.ESFP .trait-progress, .ESFP .personality-type h2 { background-color: #ECC94B; color: #1A202C; }
+
+/* Tweet Examples */
+.tweet-examples {
+  margin-bottom: var(--spacing-5);
+}
+
+.tweet-examples h3 {
+  margin-bottom: var(--spacing-4);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tweet-card {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+.tweet-text {
+  margin-bottom: var(--spacing-2);
+}
+
+.tweet-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+}
+
+.tweet-trait {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: var(--spacing-5) 0 var(--spacing-3);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin-bottom: var(--spacing-2);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  #twitter-form {
+    flex-direction: column;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+  }
+  
+  .share-buttons {
+    width: 100%;
+  }
+  
+  .share-buttons button {
+    flex: 1;
+  }
+  
+  .trait-pair {
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.75rem;
+  }
+  
+  .personality-type h2 {
+    font-size: 2.5rem;
+  }
+  
+  .personality-type h3 {
+    font-size: 1.25rem;
+  }
+}
