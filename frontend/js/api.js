@@ -1,7 +1,7 @@
 
 class ApiClient {
   constructor() {
-    this.baseUrl = 'http://localhost:8000';
+    this.baseUrl = 'https://xpersonalitypredictor.onrender.com/';
   }
 
   /**
