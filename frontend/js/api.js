@@ -1,7 +1,7 @@
 
 class ApiClient {
   constructor() {
-    this.baseUrl = 'https://xpersonalitypredictor.onrender.com/';
+    this.baseUrl = 'https://xpersonalitypredictor.onrender.com';
   }
 
   /**
