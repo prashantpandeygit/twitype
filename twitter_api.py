@@ -44,17 +44,18 @@ sample_tweets = {
 }
 
 sample_tweets["narendramodi"] = [
-    "The greatest lesson of my life has been to believe in myself.",
-    "Yoga is an invaluable gift from our ancient tradition.",
-    "India's strength lies in her diversity; let's celebrate it.",
-    "Progress happens when people share knowledge and collaborate.",
-    "Democracy cannot succeed without a commitment to non-violence.",
-    "In a time of crisis, we need to unite as one family.",
-    "The future belongs to societies that invest in education, innovation, and youth.",
-    "Cleanliness is a way of life, not just a routine.",
-    "Development must be all-inclusive and it must benefit the poorest of the poor.",
-    "Let us make Earth a cleaner and greener planet."
+    "Shaanti ka maarg bhi Shakti se hokar jaata hai. On Buddha Purnima, we reaffirm our commitment to peace and strength.",
+    "Operation Sindoor is India's new normal in our fight against terrorism. We will not tolerate nuclear blackmail.",
+    "I convey sincere felicitations and best wishes from the people of India to His Holiness Pope Leo XIV.",
+    "I strongly condemn the terror attack in Pahalgam, Jammu and Kashmir. Condolences to those who have lost their loved ones.",
+    "Spoke to @elonmusk and talked about various issues, including the topics we covered during our meeting in Washington DC earlier this year.",
+    "I look forward to strengthening ties with Spain under the leadership of Prime Minister Pedro Sánchez.",
+    "Congratulations to the Indian cricket team for their victory in the T20 World Cup 2024. The nation is proud of your achievement.",
+    "Mission Divyastra's successful test is a testament to our scientists' hard work and dedication. India is proud!",
+    "On Maharana Pratap Jayanti, we remember his courage and dedication to the motherland.",
+    "Rabindranath Tagore's thoughts continue to inspire generations. On his birth anniversary, we pay homage to the great poet."
 ]
+
 
 sample_tweets["BarackObama"] = [
     "Change will not come if we wait for some other person or some other time.",

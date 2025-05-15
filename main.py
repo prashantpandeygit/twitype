@@ -4,7 +4,6 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import uvicorn
 from typing import List, Dict, Any, Optional
-
 from twitter_api import get_user_tweets
 from personality_analyzer import analyze_tweets
 from mbti_classifier import classify_personality

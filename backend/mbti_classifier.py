@@ -2,6 +2,7 @@ from typing import Dict, Tuple, List
 import random
 
 def classify_personality(trait_counts: Dict[str, int]) -> Tuple[str, Dict[str, float]]:
+
     e_i_percentages = get_trait_percentages(trait_counts, "E", "I")
     s_n_percentages = get_trait_percentages(trait_counts, "S", "N")
     t_f_percentages = get_trait_percentages(trait_counts, "T", "F")
@@ -24,6 +25,7 @@ def classify_personality(trait_counts: Dict[str, int]) -> Tuple[str, Dict[str, f
     return mbti_type, all_percentages
 
 def get_trait_percentages(trait_counts: Dict[str, int], trait1: str, trait2: str) -> Dict[str, float]:
+
     total = trait_counts[trait1] + trait_counts[trait2]
     
     if total == 0:
@@ -40,6 +42,7 @@ def get_trait_percentages(trait_counts: Dict[str, int], trait1: str, trait2: str
     return {trait1: percent1, trait2: percent2}
 
 def get_personality_description(mbti_type: str) -> str:
+
     descriptions = {
         "INTJ": "INTJs are analytical problem-solvers, innovative and independent. They drive to implement their ideas and achieve their goals.",
         "INTP": "INTPs are logical, original, creative thinkers. They seek to develop logical explanations for everything that interests them.",
@@ -62,6 +65,7 @@ def get_personality_description(mbti_type: str) -> str:
     return descriptions.get(mbti_type, "Personality type description not available.")
 
 def get_trait_strength(percentages: Dict[str, float], trait: str) -> str:
+
     percentage = percentages[trait]
     
     if percentage >= 80:
